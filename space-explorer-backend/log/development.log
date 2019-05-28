@@ -389,3 +389,32 @@ Processing by UsersController#index as HTML
 Completed 200 OK in 18ms (Views: 9.6ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/characters" for ::1 at 2019-05-28 15:17:02 +0100
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rebecca/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by CharactersController#index as */*
+  [1m[36mCharacter Load (1.3ms)[0m  [1m[34mSELECT "characters".* FROM "characters"[0m
+  ↳ app/controllers/characters_controller.rb:5
+Completed 200 OK in 25ms (Views: 11.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/characters/undefined" for ::1 at 2019-05-28 15:26:56 +0100
+Processing by CharactersController#show as */*
+  Parameters: {"id"=>"undefined"}
+  [1m[36mCharacter Load (1.5ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:9
+Completed 404 Not Found in 18ms (ActiveRecord: 3.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Character with 'id'=undefined):
+  
+app/controllers/characters_controller.rb:9:in `show'
+Started GET "/characters/2" for ::1 at 2019-05-28 15:27:00 +0100
+Processing by CharactersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/characters_controller.rb:9
+Completed 200 OK in 25ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
