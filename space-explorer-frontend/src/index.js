@@ -110,6 +110,7 @@ const markBorder = currentEl => {
     currentEl.style.border = "2px solid blue"
     previousEl = document.getElementById(id)
   }
+  return id
 }
 
 const renderAllCharacters = characters => {
