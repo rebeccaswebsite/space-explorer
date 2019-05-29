@@ -1,12 +1,23 @@
-const charactersUrl = "http://localhost:3000/characters"
-function getCharacters() {
+const charactersUrl = "http://localhost:3000/characters";
+const usersUrl = "http://localhost:3000/users/";
+
+const getCharacters = () => {
   return fetch(charactersUrl)
     .then(response => response.json())
-    .then(json => console.log(json))
-}
+    .then(json => console.log(json));
+};
 
-function getCharacter(character) {
+const getCharacter = character => {
   return fetch(`${charactersUrl}/${character.id}`)
     .then(response => response.json())
-    .then(json => console.log(json))
-}
+    .then(json => console.log(json));
+};
+
+const getUsers = () => {
+  return fetch(usersUrl)
+    .then(resp => resp.json())
+    .then(object => console.log(object));
+};
+
+
+cons
