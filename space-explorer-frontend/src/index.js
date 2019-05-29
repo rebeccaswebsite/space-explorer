@@ -85,7 +85,31 @@ const renderSingleCharater = character => {
   const newDiv = document.createElement("div")
   newDiv.innerText = character.name + ": " + character.bio
 
+  const imgEl = document.createElement("img")
+  imgEl.src = character.image
+  newDiv.appendChild(imgEl)
+
+  newDiv.id = character.id
+
+  newDiv.addEventListener("click", () => {
+    markBorder(newDiv)
+  })
   characterDiv.appendChild(newDiv)
+}
+
+let previousEl
+
+const markBorder = currentEl => {
+  let id = currentEl.id
+
+  if (previousEl) {
+    previousEl.style.border = "unset"
+    currentEl.style.border = "2px solid blue"
+    previousEl = document.getElementById(id)
+  } else {
+    currentEl.style.border = "2px solid blue"
+    previousEl = document.getElementById(id)
+  }
 }
 
 const renderAllCharacters = characters => {
