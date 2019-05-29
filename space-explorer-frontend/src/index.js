@@ -1,29 +1,23 @@
-const charactersUrl = "http://localhost:3000/characters";
-const usersUrl = "http://localhost:3000/users/";
-
-const getCharacters = () => {
-  return fetch(charactersUrl)
-    .then(response => response.json())
-    .then(json => console.log(json));
-};
+const charactersUrl = "http://localhost:3000/characters"
+const usersUrl = "http://localhost:3000/users/"
 
 const getCharacter = character => {
   return fetch(`${charactersUrl}/${character.id}`)
     .then(response => response.json())
-    .then(json => console.log(json));
-};
+    .then(json => console.log(json))
+}
 
 const getUsers = () => {
   return fetch(usersUrl)
     .then(resp => resp.json())
-    .then(object => console.log(object));
-};
+    .then(object => console.log(object))
+}
 
 const getUser = user => {
   return fetch(`${usersUrl}/${user.id}`)
     .then(response => response.json())
-    .then(json => console.log(json));
-};
+    .then(json => console.log(json))
+}
 
 const updateUser = obj => {
   // obj = {
@@ -33,15 +27,14 @@ const updateUser = obj => {
   return fetch(`${usersUrl}/${obj.id}`, {
     method: "PATCH",
     headers: {
-
       "Content-Type": "application/json",
       Accept: "application/json"
     },
     body: JSON.stringify(obj)
   })
     .then(response => response.json())
-    .then(json => console.log(json));
-};
+    .then(json => console.log(json))
+}
 
 const deleteUser = obj => {
   // obj = {
@@ -49,16 +42,13 @@ const deleteUser = obj => {
   // }
   return fetch(`${usersUrl}/${obj.id}`, {
     method: "DELETE"
-  });
-};
-
+  })
+}
 
 // Create new user
 
-
 const createUser = () => {
-
-  const formEl = document.querySelector('#form')
+  const formEl = document.querySelector("#form")
 
   formEl.addEventListener("submit", e => {
     e.preventDefault()
@@ -67,7 +57,6 @@ const createUser = () => {
     }
     createUserBackend(obj)
   })
-
 }
 
 const createUserBackend = obj => {
@@ -77,21 +66,35 @@ const createUserBackend = obj => {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(obj)
-  }).then(response => response.json())
-  .then(json => console.log(json))
+  })
+    .then(response => response.json())
+    .then(json => console.log(json))
 }
 
+// get characters and render to page
 
-// render characters to page
+const getCharacters = () => {
+  return fetch(charactersUrl)
+    .then(response => response.json())
+    .then(json => renderAllCharacters(json))
+}
 
-const 
+const characterDiv = document.querySelector(".characters-div")
 
+const renderSingleCharater = character => {
+  const newDiv = document.createElement("div")
+  newDiv.innerText = character.name + ": " + character.bio
 
+  characterDiv.appendChild(newDiv)
+}
 
+const renderAllCharacters = characters => {
+  characters.forEach(character => renderSingleCharater(character))
+}
 
 const init = () => {
   createUser()
+  getCharacters()
 }
-
 
 init()
