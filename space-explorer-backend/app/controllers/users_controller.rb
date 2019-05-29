@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     def create
         user = User.create(name: params[:name], character_id: params[:character_id])
-        render json: user
+        render json: user, include: [:character]
     end
 
 
