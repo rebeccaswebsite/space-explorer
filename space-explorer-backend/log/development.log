@@ -526,3 +526,292 @@ Processing by CharactersController#index as */*
 Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.2ms)
 
 
+Started GET "/users//2" for ::1 at 2019-05-29 09:39:17 +0100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/rebecca/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mCharacter Load (1.3ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 83ms (Views: 54.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/users/" for ::1 at 2019-05-29 09:46:24 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Nico", "character_id"=>1, "user"=>{"name"=>"Nico", "character_id"=>1}}
+  [1m[36mCharacter Load (1.4ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 09:46:42 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 09:47:19 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for ::1 at 2019-05-29 09:50:09 +0100
+Processing by UsersController#create as */*
+  Parameters: {"name"=>"Lucy", "character_id"=>"1", "user"=>{"name"=>"Lucy", "character_id"=>"1"}}
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 09:50:22 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/" for ::1 at 2019-05-29 09:51:05 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Lucy", "character_id"=>"1", "user"=>{"name"=>"Lucy", "character_id"=>"1"}}
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 09:51:11 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.4ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for ::1 at 2019-05-29 09:53:49 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Lucy", "character_id"=>"1", "user"=>{"name"=>"Lucy", "character_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mCharacter Load (1.5ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (3.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "character_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Lucy"], ["character_id", "1"], ["created_at", "2019-05-29 08:53:49.540881"], ["updated_at", "2019-05-29 08:53:49.540881"]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 200 OK in 59ms (Views: 1.2ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 09:53:54 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.3ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/users/" for ::1 at 2019-05-29 09:54:23 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Amy", "character_id"=>"1", "user"=>{"name"=>"Amy", "character_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "character_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Amy"], ["character_id", "1"], ["created_at", "2019-05-29 08:54:23.541930"], ["updated_at", "2019-05-29 08:54:23.541930"]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 200 OK in 22ms (Views: 1.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 09:54:26 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 23ms (Views: 22.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users//2" for ::1 at 2019-05-29 09:57:34 +0100
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/" for ::1 at 2019-05-29 09:57:57 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Charlotte", "character_id"=>"1", "user"=>{"name"=>"Charlotte", "character_id"=>"1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "character_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Charlotte"], ["character_id", "1"], ["created_at", "2019-05-29 08:57:57.830043"], ["updated_at", "2019-05-29 08:57:57.830043"]]
+  ↳ app/controllers/users_controller.rb:14
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:14
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 3.4ms)
+
+
+Started PATCH "/users//6" for ::1 at 2019-05-29 10:00:53 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"6", "name"=>"Char", "character_id"=>"2", "user"=>{"id"=>"6", "name"=>"Char", "character_id"=>"2"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21
+  [1m[36mUser Update (2.4ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "character_id" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Char"], ["character_id", "2"], ["updated_at", "2019-05-29 09:00:53.559369"], ["id", 6]]
+  ↳ app/controllers/users_controller.rb:21
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21
+Completed 200 OK in 32ms (Views: 0.8ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 10:01:09 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.2ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 21ms (Views: 18.7ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/users//1" for ::1 at 2019-05-29 11:30:27 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27
+  [1m[36mUser Destroy (2.1ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:27
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27
+Completed 204 No Content in 29ms (ActiveRecord: 6.2ms)
+
+
+Started DELETE "/users//1" for ::1 at 2019-05-29 11:30:56 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+Completed 404 Not Found in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  
+app/controllers/users_controller.rb:26:in `destroy'
+Started DELETE "/users//2" for ::1 at 2019-05-29 11:31:04 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/users_controller.rb:27
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27
+Completed 204 No Content in 24ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 11:31:11 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (1.4ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 60ms (Views: 52.3ms | ActiveRecord: 2.5ms)
+
+
+Started DELETE "/users//3" for ::1 at 2019-05-29 11:31:35 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:26
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:27
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/users_controller.rb:27
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:27
+Completed 204 No Content in 5ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/" for ::1 at 2019-05-29 11:31:39 +0100
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCACHE Character Load (0.0ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+  [1m[36mCharacter Load (0.1ms)[0m  [1m[34mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:5
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.5ms)
+
+
