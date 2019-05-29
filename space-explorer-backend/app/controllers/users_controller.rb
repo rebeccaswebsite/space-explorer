@@ -11,8 +11,9 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create(name: params[:name], character_id: params[:character_id])
-        render json: user, include: [:character]
+        user = User.create(name: params[:name])
+        byebug
+        render json: user
     end
 
 
