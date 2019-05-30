@@ -147,8 +147,9 @@ const renderUserInfo = user => {
     updateUserOnBackend().then(user => renderUserInfo(user))
   })
 
-  const playBtn = document.querySelector("#play-game")
-  playBtn.addEventListener("click", console.log("clicked!"))
+  playGameBut.addEventListener("click", () => {
+    console.log("clicked")
+  })
 }
 
 const updateUserOnBackend = () => {
