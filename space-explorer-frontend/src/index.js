@@ -111,14 +111,13 @@ const renderUserInfo = user => {
   <p>Character Info: ${user.character.bio}</p>
   <p>Changed your mind? Pick a new character below and select the "change character" button.</p>
   `
-  debugger
   const deleteUserBtn = document.createElement("button")
   deleteUserBtn.innerText = "Delete Account"
   const changeCharacterBut = document.createElement("button")
   changeCharacterBut.innerText = "Change Character"
   const playGameBut = document.createElement("button")
   playGameBut.innerText = "Play Game!"
-  // const updateCharacter = document.createElement
+  playGameBut.id = "play-game"
 
   userProfile.append(
     userName,
@@ -147,6 +146,9 @@ const renderUserInfo = user => {
   changeCharacterBut.addEventListener("click", () => {
     updateUserOnBackend().then(user => renderUserInfo(user))
   })
+
+  const playBtn = document.querySelector("#play-game")
+  playBtn.addEventListener("click", console.log("clicked!"))
 }
 
 const updateUserOnBackend = () => {
