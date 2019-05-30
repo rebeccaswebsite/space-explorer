@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-char1 = Character.create(name: "Star Ship", bio: "Intergalactic space cruiser", image: "./public/starwars.png")
-char2 = Character.create(name: "Starcraft", bio: "Icy blue like your soul", image: "./public/starcraft.png")
-char3 = Character.create(name: "Astronaut", bio: "The original space explorer", image: "./public/astronaut.png")
+char1 = Character.create(name: "Alien Insect", bio: "Intergalactic space cruiser", image: "./public/insectBig.png")
+char2 = Character.create(name: "Starcraft", bio: "Icy blue like your soul", image: "./public/starcraftBig.png")
+char3 = Character.create(name: "Astronaut", bio: "The original space explorer", image: "./public/astronautBig.png")
  
 
 user1 = User.create(name: "Rebecca", character_id: char1.id)
