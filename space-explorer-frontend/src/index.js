@@ -24,10 +24,9 @@ const getUser = user => {
 let userId
 let characterId
 const characterDiv = document.querySelector(".character-cards")
+const formEl = document.querySelector("#form")
 
 const createUser = () => {
-  const formEl = document.querySelector("#form")
-
   formEl.addEventListener("submit", e => {
     e.preventDefault()
     obj = {
@@ -36,7 +35,7 @@ const createUser = () => {
     }
     createUserBackend(obj).then(user => renderUserInfo(user))
 
-    formEl.remove()
+    formEl.innerHTML = ""
   })
 }
 
@@ -100,6 +99,7 @@ const renderAllCharacters = characters => {
 const renderUserInfo = user => {
   userId = user.id
   const userProfile = document.querySelector(".user_profile")
+  userProfile.innerHTML = ""
 
   const userName = document.createElement("h2")
   userName.innerText = `Username: ${user.name}`
@@ -109,27 +109,51 @@ const renderUserInfo = user => {
   <h3>Character: ${user.character.name}</h3>
   <img src = ${user.character.image}>
   <p>Character Info: ${user.character.bio}</p>
-  <p>Changed your mind? Select a new character from the options below...</p>
+  <p>Changed your mind? Pick a new character below and select the "change character" button.</p>
   `
+  debugger
   const deleteUserBtn = document.createElement("button")
   deleteUserBtn.innerText = "Delete Account"
+  const changeCharacterBut = document.createElement("button")
+  changeCharacterBut.innerText = "Change Character"
   const playGameBut = document.createElement("button")
   playGameBut.innerText = "Play Game!"
+  // const updateCharacter = document.createElement
 
-  userProfile.append(userName, characterInfo, deleteUserBtn, playGameBut)
+  userProfile.append(
+    userName,
+    characterInfo,
+    deleteUserBtn,
+    changeCharacterBut,
+    playGameBut
+  )
 
   deleteUserBtn.addEventListener("click", () => {
     deleteUserBackend(user)
-    userProfile.remove()
-    characterDiv.remove()
+    userProfile.innerHTML = ""
+    characterDiv.innerHTML = ""
+
+    getCharacters().then(json => renderAllCharacters(json))
+
+    formEl.innerHTML = `<form id="form">
+      <label for="name">Username</label>
+      <input type="text" name="name" />
+      <button type="submit">Submit</button>
+    </form>
+    </br>`
+    createUser()
+  })
+
+  changeCharacterBut.addEventListener("click", () => {
+    updateUserOnBackend().then(user => renderUserInfo(user))
   })
 }
 
-const updateUserOnBackend = obj => {
-  // obj = {
-  //   id: userId,
-  //   character_id: formEl.character.value.id
-  // }
+const updateUserOnBackend = () => {
+  obj = {
+    id: userId,
+    character_id: characterId
+  }
   return fetch(`${usersUrl}/${obj.id}`, {
     method: "PATCH",
     headers: {
@@ -137,9 +161,7 @@ const updateUserOnBackend = obj => {
       Accept: "application/json"
     },
     body: JSON.stringify(obj)
-  })
-    .then(response => response.json())
-    .then(json => console.log(json))
+  }).then(response => response.json())
 }
 
 const deleteUserBackend = user => {
