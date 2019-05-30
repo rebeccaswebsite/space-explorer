@@ -167,8 +167,15 @@ const deleteUserBackend = user => {
 };
 
 const init = () => {
+<<<<<<< HEAD
   createUser();
   getCharacters().then(json => renderAllCharacters(json));
 };
+=======
+  createUser()
+  getCharacters().then(json => renderAllCharacters(json))
+  // draw()
+}
+>>>>>>> acb00e2339de4e8ff550e9fefb952eb39fc3a789
 
 init();
