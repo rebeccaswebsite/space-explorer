@@ -26,18 +26,30 @@ let characterId
 const characterDiv = document.querySelector(".character-cards")
 const formEl = document.querySelector("#form")
 
-const createUser = () => {
+const createUser = () => {                     // CHANGED THIS
   formEl.addEventListener("submit", e => {
-    e.preventDefault()
-    obj = {
-      name: formEl.name.value,
-      character_id: characterId
-    }
-    createUserBackend(obj).then(user => renderUserInfo(user))
 
-    formEl.innerHTML = ""
-  })
-}
+    e.preventDefault();
+
+
+    
+    if (!formEl.name.value){
+      alert("Please enter a username!")
+    } else if (!characterId){
+      alert("Please choose a character!")
+    } else {
+      obj = {
+        name: formEl.name.value,
+        character_id: characterId
+      };
+      createUserBackend(obj).then(user => renderUserInfo(user));
+  
+      formEl.innerHTML = "";
+    }
+
+  });
+};
+
 
 const createUserBackend = obj => {
   return fetch(usersUrl, {
