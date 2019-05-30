@@ -1,10 +1,8 @@
-const charactersUrl = "http://localhost:3000/characters"
+const charactersUrl = "http://localhost:3000/characters/"
 const usersUrl = "http://localhost:3000/users/"
 
-const getCharacter = character => {
-  return fetch(`${charactersUrl}/${character.id}`)
-    .then(response => response.json())
-    .then(json => console.log(json))
+const getCharacter = id => {
+  return fetch(`${charactersUrl}/${id}`).then(response => response.json())
 }
 
 const getUsers = () => {
@@ -26,27 +24,25 @@ let characterId
 const characterDiv = document.querySelector(".character-cards")
 const formEl = document.querySelector("#form")
 
-const createUser = () => {                     // CHANGED THIS
+const createUser = () => {
   formEl.addEventListener("submit", e => {
-
-    e.preventDefault();
+    e.preventDefault()
 
     if (!formEl.name.value) {
-      alert("Please enter a username!");
+      alert("Please enter a username!")
     } else if (!characterId) {
-      alert("Please choose a character!");
+      alert("Please choose a character!")
     } else {
       obj = {
         name: formEl.name.value,
         character_id: characterId
-      };
-      createUserBackend(obj).then(user => renderUserInfo(user));
+      }
+      createUserBackend(obj).then(user => renderUserInfo(user))
 
-      formEl.innerHTML = "";
+      formEl.innerHTML = ""
     }
-  });
-};
-
+  })
+}
 
 const createUserBackend = obj => {
   return fetch(usersUrl, {
@@ -157,7 +153,9 @@ const renderUserInfo = user => {
   })
 
   playGameBut.addEventListener("click", () => {
-    console.log("clicked")
+    const preGameEl = document.querySelector("#pre-game")
+    preGameEl.innerHTML = ``
+    getCharacter(characterId).then(character => draw(character.image))
   })
 }
 
