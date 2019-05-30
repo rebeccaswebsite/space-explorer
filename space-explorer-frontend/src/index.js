@@ -62,9 +62,12 @@ const renderSingleCharater = character => {
 
   const imgEl = document.createElement("img")
   imgEl.src = character.image
+  imgEl.alt = `${character.name} image`
+  imgEl.className = "img-responsive"
   newDiv.appendChild(imgEl)
 
   newDiv.id = character.id
+  newDiv.className = "col-xs-6 col-md-3"
 
   newDiv.addEventListener("click", () => {
     markBorder(newDiv)
@@ -106,13 +109,12 @@ const renderUserInfo = user => {
   <h3>Character: ${user.character.name}</h3>
   <img src = ${user.character.image}>
   <p>Character Info: ${user.character.bio}</p>
-  <p>Changed your mind? Pick a new character below:</p>
+  <p>Changed your mind? Select a new character from the options below...</p>
   `
   const deleteUserBtn = document.createElement("button")
   deleteUserBtn.innerText = "Delete Account"
   const playGameBut = document.createElement("button")
   playGameBut.innerText = "Play Game!"
-  // const updateCharacter = document.createElement
 
   userProfile.append(userName, characterInfo, deleteUserBtn, playGameBut)
 

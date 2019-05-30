@@ -4,15 +4,23 @@
     <meta charset="utf-8" />
     <title>Space Explorer</title>
     <script defer src="./src/index.js"></script>
-    <link rel="stylesheet" href="./src/index.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <form id="form">
-      <label for="name">Username</label>
+    <h1 class="jumbotron">Space Explorer</h1>
+    <form id="form" class="input-group">
+      <label for="name">Create your username</label>
       <input type="text" name="name" />
-      <button type="submit">Submit</button>
+      <button type="submit" class="btn-group">Submit</button>
     </form>
     <div class="user_profile"></div>
-    <div class="character-cards"></div>
+    <h5>Pick a character:</h5>
+    <div class="character-cards row"></div>
   </body>
 </html>
