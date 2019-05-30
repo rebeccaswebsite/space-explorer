@@ -26,16 +26,26 @@ let characterId;
 const characterDiv = document.querySelector(".character-cards");
 const formEl = document.querySelector("#form");
 
-const createUser = () => {
+const createUser = () => {                     // CHANGED THIS
   formEl.addEventListener("submit", e => {
     e.preventDefault();
-    obj = {
-      name: formEl.name.value,
-      character_id: characterId
-    };
-    createUserBackend(obj).then(user => renderUserInfo(user));
 
-    formEl.innerHTML = "";
+
+    
+    if (!formEl.name.value){
+      alert("Please enter a username!")
+    } else if (!characterId){
+      alert("Please choose a character!")
+    } else {
+      obj = {
+        name: formEl.name.value,
+        character_id: characterId
+      };
+      createUserBackend(obj).then(user => renderUserInfo(user));
+  
+      formEl.innerHTML = "";
+    }
+
   });
 };
 
@@ -57,7 +67,7 @@ const getCharacters = () => {
 
 const renderSingleCharater = character => {
   const newDiv = document.createElement("div");
-  newDiv.innerText = character.name + ": " + character.bio;
+  newDiv.innerText = character.name;
 
   const imgEl = document.createElement("img");
   imgEl.src = character.image;
@@ -131,7 +141,7 @@ const renderUserInfo = user => {
 
     getCharacters().then(json => renderAllCharacters(json));
 
-      formEl.innerHTML = `<form id="form">
+    formEl.innerHTML = `<form id="form">
       <label for="name">Username</label>
       <input type="text" name="name" />
       <button type="submit">Submit</button>
