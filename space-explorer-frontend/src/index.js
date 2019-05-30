@@ -29,13 +29,20 @@ const formEl = document.querySelector("#form");
 const createUser = () => {
   formEl.addEventListener("submit", e => {
     e.preventDefault();
-    obj = {
-      name: formEl.name.value,
-      character_id: characterId
-    };
-    createUserBackend(obj).then(user => renderUserInfo(user));
 
-    formEl.innerHTML = "";
+    if (!formEl.name.value) {
+      alert("Please enter a username!");
+    } else if (!characterId) {
+      alert("Please choose a character!");
+    } else {
+      obj = {
+        name: formEl.name.value,
+        character_id: characterId
+      };
+      createUserBackend(obj).then(user => renderUserInfo(user));
+
+      formEl.innerHTML = "";
+    }
   });
 };
 
@@ -131,7 +138,7 @@ const renderUserInfo = user => {
 
     getCharacters().then(json => renderAllCharacters(json));
 
-      formEl.innerHTML = `<form id="form">
+    formEl.innerHTML = `<form id="form">
       <label for="name">Username</label>
       <input type="text" name="name" />
       <button type="submit">Submit</button>
@@ -167,15 +174,8 @@ const deleteUserBackend = user => {
 };
 
 const init = () => {
-<<<<<<< HEAD
   createUser();
   getCharacters().then(json => renderAllCharacters(json));
 };
-=======
-  createUser()
-  getCharacters().then(json => renderAllCharacters(json))
-  // draw()
-}
->>>>>>> acb00e2339de4e8ff550e9fefb952eb39fc3a789
 
 init();
