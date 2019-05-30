@@ -86,8 +86,8 @@ function draw() {
 
   aY += gravity
 
-  ctx.fillstyle = "#0000"
   ctx.font = "20px Verdana"
+  ctx.fillStyle = "#ffffff"
   ctx.fillText("Score: " + score, 10, canvas.height - 20)
 
   requestAnimationFrame(draw)

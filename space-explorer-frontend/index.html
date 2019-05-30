@@ -12,19 +12,24 @@
     />
   </head>
   <body>
-    <h1 class="jumbotron">Space Explorer</h1>
+    <h1 class="jumbotron text-center">Space Explorer</h1>
     <div id="pre-game">
       <form id="form" class="input-group">
         <label for="name">Create your username</label>
         <input type="text" name="name" />
         <button type="submit" class="btn-group">Submit</button>
       </form>
-      <div class="user_profile"></div>
+      <div class="user_profile text-center"></div>
       <h5>Pick a character:</h5>
       <div class="character-cards"></div>
     </div>
 
-    <canvas id="canvas" width="288" height="512"></canvas>
+    <canvas
+      class="img-responsive center-block"
+      id="canvas"
+      width="288"
+      height="512"
+    ></canvas>
 
     <script defer src="./src/index.js"></script>
     <script defer src="./spaceExplorer.js"></script>
