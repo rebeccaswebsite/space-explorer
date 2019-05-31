@@ -39,7 +39,7 @@ const createUser = () => {
       }
       createUserBackend(obj).then(user => renderUserInfo(user))
 
-      formEl.innerHTML = ""
+      formEl.remove()
     }
   })
 }
@@ -62,16 +62,18 @@ const getCharacters = () => {
 
 const renderSingleCharater = character => {
   const newDiv = document.createElement("div")
-  newDiv.innerText = character.name + ": " + character.bio
+  const pEl = document.createElement("p")
+  pEl.innerText = character.name + ": " + character.bio
 
   const imgEl = document.createElement("img")
   imgEl.src = character.image
   imgEl.alt = `${character.name} image`
   imgEl.className = "img-responsive"
-  newDiv.appendChild(imgEl)
+  newDiv.append(pEl, imgEl)
 
   newDiv.id = character.id
-  newDiv.className = "col-xs-6 col-md-3"
+  newDiv.className = "col-md-4"
+  pEl.className = "text-background rcorners"
 
   newDiv.addEventListener("click", () => {
     markBorder(newDiv)
@@ -86,10 +88,12 @@ const markBorder = currentEl => {
 
   if (previousEl) {
     previousEl.style.border = "unset"
-    currentEl.style.border = "2px solid blue"
+    currentEl.style.border = "4px solid white"
+    currentEl.className = "rcorners col-md-4"
     previousEl = document.getElementById(id)
   } else {
-    currentEl.style.border = "2px solid blue"
+    currentEl.style.border = "4px solid white"
+    currentEl.className = "rcorners col-md-4"
     previousEl = document.getElementById(id)
   }
   characterId = id
