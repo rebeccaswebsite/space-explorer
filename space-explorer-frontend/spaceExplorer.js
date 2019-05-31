@@ -32,7 +32,7 @@ const fly = new Audio()
 const scr = new Audio()
 
 fly.src = "./public/fly.mov"
-// scr.src = "./public/score.mp3"
+scr.src = "./public/scr.mp3"
 
 // on key down
 
@@ -92,7 +92,7 @@ function draw() {
 
     if (pipe[i].x == 5) {
       score++
-      // scr.play()
+      scr.play()
     }
   }
 
