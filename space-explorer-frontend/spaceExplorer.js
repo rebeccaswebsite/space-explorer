@@ -31,8 +31,8 @@ let score = 0
 const fly = new Audio()
 const scr = new Audio()
 
-fly.src = "./public/fly.mp3"
-scr.src = "./public/score.mp3"
+fly.src = "./public/fly.mov"
+// scr.src = "./public/score.mp3"
 
 // on key down
 
@@ -42,7 +42,6 @@ document.addEventListener("keydown", () => {
 
 function moveUp() {
   aY -= 20
-  fly.play()
 }
 
 // pipe coordinates
@@ -93,7 +92,7 @@ function draw() {
 
     if (pipe[i].x == 5) {
       score++
-      scr.play()
+      // scr.play()
     }
   }
 
