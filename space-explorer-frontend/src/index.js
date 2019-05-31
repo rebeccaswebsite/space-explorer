@@ -203,13 +203,16 @@ const deleteUserBackend = user => {
 const spaceExplorerListener = () => {
   titleEl = document.querySelector("h1")
   titleEl.addEventListener("click", function() {
-    init()
+    characterDiv.innerHTML = ``
+    createUser()
+    getCharacters().then(json => renderAllCharacters(json))
   })
 }
 
 const init = () => {
   createUser()
   getCharacters().then(json => renderAllCharacters(json))
+  spaceExplorerListener()
 }
 
 init()
