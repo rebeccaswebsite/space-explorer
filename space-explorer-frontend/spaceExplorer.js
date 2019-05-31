@@ -1,65 +1,74 @@
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
+var canvas = document.getElementById("canvas")
+var ctx = canvas.getContext("2d")
 
 //load images
 
-const astronaut = new Image();
-const bg = new Image();
-const fg = new Image();
-const pipeNorth = new Image();
-const pipeSouth = new Image();
-const gameOver = new Image();
+const astronaut = new Image()
+const bg = new Image()
+const fg = new Image()
+const pipeNorth = new Image()
+const pipeSouth = new Image()
+const gameOver = new Image()
 
-bg.src = "./public/bg.png";
-fg.src = "./public/fg.png";
-pipeNorth.src = "./public/pipeNorth.png";
-pipeSouth.src = "./public/pipeSouth.png";
-gameOver.src = "./public/gameOver.png";
+bg.src = "./public/bg.png"
+fg.src = "./public/fg.png"
+pipeNorth.src = "./public/pipeNorth.png"
+pipeSouth.src = "./public/pipeSouth.png"
+gameOver.src = "./public/gameOver.png"
 
 // useful variables
-const gap = 375;
-const constant = pipeNorth.height + gap;
+const gap = 375
+const constant = pipeNorth.height + gap
 
-let aX = 10;
-let aY = 150;
+let aX = 10
+let aY = 150
 
-let gravity = 1.5;
-let score = 0;
+let gravity = 1.5
+let score = 0
+
+// audio files
+
+const fly = new Audio()
+const scr = new Audio()
+
+fly.src = "./public/fly.mp3"
+scr.src = "./public/score.mp3"
 
 // on key down
 
 document.addEventListener("keydown", () => {
-  moveUp();
-});
+  moveUp()
+})
 
 function moveUp() {
-  aY -= 20;
+  aY -= 20
+  fly.play()
 }
 
 // pipe coordinates
-let pipe = [];
+let pipe = []
 
 pipe[0] = {
   x: canvas.width,
   y: 0
-};
+}
 
 //draw images
 
 function draw() {
-  ctx.drawImage(bg, 0, 0);
+  ctx.drawImage(bg, 0, 0)
 
   for (let i = 0; i < pipe.length; i++) {
-    ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
-    ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+    ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y)
+    ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant)
 
-    pipe[i].x--;
+    pipe[i].x--
 
     if (pipe[i].x == 125) {
       pipe.push({
         x: canvas.width,
         y: Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
-      });
+      })
     }
 
     // detect collision
@@ -72,27 +81,31 @@ function draw() {
       aY + astronaut.height >= canvas.height - fg.height
     ) {
       setTimeout(function() {
-        location.reload();
-      }, 2000);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.drawImage(gameOver, 0, 0);
-      clearInterval(interval);
+        location.reload()
+      }, 2000)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.drawImage(gameOver, 0, 0)
+      ctx.font = "20px Verdana"
+      ctx.fillStyle = "#ffffff"
+      ctx.fillText("Score: " + score, 100, canvas.height - 100, 400, 200)
+      clearInterval(interval)
     }
 
     if (pipe[i].x == 5) {
-      score++;
+      score++
+      scr.play()
     }
   }
 
-  ctx.drawImage(fg, 0, canvas.height - fg.height);
+  ctx.drawImage(fg, 0, canvas.height - fg.height)
 
-  ctx.drawImage(astronaut, aX, aY);
+  ctx.drawImage(astronaut, aX, aY)
 
-  aY += gravity;
+  aY += gravity
 
-  ctx.font = "20px Verdana";
-  ctx.fillStyle = "#ffffff";
-  ctx.fillText("Score: " + score, 10, canvas.height - 20);
+  ctx.font = "20px Verdana"
+  ctx.fillStyle = "#ffffff"
+  ctx.fillText("Score: " + score, 10, canvas.height - 20)
 
-  requestAnimationFrame(draw);
+  requestAnimationFrame(draw)
 }
