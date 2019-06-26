@@ -8,13 +8,11 @@ const getCharacter = id => {
 const getUsers = () => {
   return fetch(usersUrl)
     .then(resp => resp.json())
-    .then(object => console.log(object))
 }
 
 const getUser = user => {
   return fetch(`${usersUrl}/${user.id}`)
     .then(response => response.json())
-    .then(json => console.log(json))
 }
 
 // Create new user
@@ -57,7 +55,8 @@ const createUserBackend = obj => {
 // get characters and render to page
 
 const getCharacters = () => {
-  return fetch(charactersUrl).then(response => response.json())
+  return fetch(charactersUrl)
+  .then(response => response.json())
 }
 
 const renderSingleCharater = character => {
@@ -210,9 +209,6 @@ const deleteUserBackend = user => {
 const spaceExplorerListener = () => {
   titleEl = document.querySelector("h1")
   titleEl.addEventListener("click", function() {
-    //   characterDiv.innerHTML = ``;
-    //   createUser();
-    //   getCharacters().then(json => renderAllCharacters(json));
 
     location.reload()
   })
