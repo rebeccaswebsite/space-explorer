@@ -157,12 +157,18 @@ const renderUserInfo = user => {
     updateUserOnBackend().then(user => renderUserInfo(user))
   })
 
+  gameDivEl = document.getElementById("game-div")
+
   playGameBut.addEventListener("click", () => {
     const preGameEl = document.querySelector("#pre-game")
     preGameEl.innerHTML = ``
     getCharacter(characterId).then(character =>
       createCharacterVariable(character)
     )
+    pEl = document.createElement('p')
+    pEl.innerText = "Press UP to avoid the bars!"
+    gameDivEl.append(pEl)  
+    pEl.className = "profile-text text-size-profile"
     draw()
     fly.play()
   })
