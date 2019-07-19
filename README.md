@@ -13,6 +13,10 @@ Clone the Github repository onto your machine using the terminal command
 
 You can find the necessary url on the right hand side of the Github repository. 
 
+To install any gems, run
+
+    bundle install
+
 # Create Your Server
 
 Navigate into the space-explorer-backend folder and run 
