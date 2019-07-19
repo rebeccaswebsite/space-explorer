@@ -9,7 +9,7 @@ If you'd like to run the code from your own machine please follow the below inst
 
 Clone the Github repository onto your machine using the terminal command 
 
-   git clone <url here> 
+    git clone <url here> 
 
 You can find the necessary url on the right hand side of the Github repository. 
 
