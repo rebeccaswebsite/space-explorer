@@ -21,18 +21,18 @@ Navigate into the space-explorer-backend folder and run
 
 To set up your database. Next run
 
-   rails db:seed
+    rails db:seed
 
 To populate your database with the characters necessary to play the game. Then,
 
-   rails s 
+    rails s 
 
 To run the API needed for the page to load properly.
 
 # Open the app 
 To open the app on your machine, navigate into the space-explorer-frontend folder and enter the following into your terminal
-	
-	open index.html
+
+    open index.html
 
 You’re now ready to play Space Explorer!
 
@@ -40,5 +40,4 @@ You’re now ready to play Space Explorer!
 Thank you for checking out our app :) Music is ‘Lady of Sorrows’ by The Black Madonna.
 
 # Authors
-Rebecca Huseyin
-Ayush Gehlot
+Rebecca Huseyin & Ayush Gehlot
