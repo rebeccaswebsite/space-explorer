@@ -1,6 +1,8 @@
 const charactersUrl = "http://localhost:3000/characters"
 const usersUrl = "http://localhost:3000/users/"
 
+// Fetching data
+
 const getCharacter = id => {
   return fetch(`${charactersUrl}/${id}`).then(response => response.json())
 }
@@ -52,7 +54,7 @@ const createUserBackend = obj => {
   }).then(response => response.json())
 }
 
-// get characters and render to page
+// Get characters and render to page
 
 const getCharacters = () => {
   return fetch(charactersUrl)
@@ -174,7 +176,7 @@ const renderUserInfo = user => {
   })
 }
 
-// ASSIGNING GAMEPLAY CHARACTER
+// Assigning gameplay character
 
 function createCharacterVariable(character) {
   let gameplayCharacter
@@ -189,7 +191,7 @@ function createCharacterVariable(character) {
   astronaut.src = gameplayCharacter
 }
 
-//
+// Backend user updates
 
 const updateUserOnBackend = () => {
   obj = {
@@ -212,6 +214,8 @@ const deleteUserBackend = user => {
   })
 }
 
+// Refresh page
+
 const spaceExplorerListener = () => {
   titleEl = document.querySelector("h1")
   titleEl.addEventListener("click", function() {
@@ -219,6 +223,8 @@ const spaceExplorerListener = () => {
     location.reload()
   })
 }
+
+// Set up page on load
 
 const init = () => {
   createUser()
